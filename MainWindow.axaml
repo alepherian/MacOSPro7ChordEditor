@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Pro7ChordEditor.MainWindow"
+        Title="Pro7 Chord Editor"
+        Width="1000" Height="700">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header with controls -->
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10" Background="LightGray">
+            
+            <!-- File Operations -->
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Button Name="OpenFileButton" 
+                        Content="Open ProPresenter File" 
+                        Margin="5" 
+                        Background="LightBlue"/>
+                <Button Name="SaveChordChangesButton" 
+                        Content="Save Chord Changes" 
+                        Margin="5" 
+                        Background="LightGreen"/>
+                <TextBlock Name="StatusText" 
+                           Text="Ready - Load a .pro file to begin" 
+                           VerticalAlignment="Center"
+                           Margin="10,0"/>
+            </StackPanel>
+            
+            <!-- Key Selection -->
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Original Key:" VerticalAlignment="Center" Margin="5"/>
+                <ComboBox Name="ComboBoxOriginalKey" Width="80" Margin="5"/>
+                
+                <TextBlock Text="Target Key:" VerticalAlignment="Center" Margin="5"/>
+                <ComboBox Name="ComboBoxUserKey" Width="80" Margin="5"/>
+                
+                <Button Name="TransposeButton" 
+                        Content="Transpose All Chords" 
+                        Margin="5"
+                        Background="Orange"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Main content area -->
+        <ScrollViewer Grid.Row="1" Margin="10">
+            <StackPanel Name="StackPanel" Orientation="Vertical"/>
+        </ScrollViewer>
+        
+    </Grid>
+</Window>
